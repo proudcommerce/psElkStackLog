@@ -8,7 +8,7 @@
  * @copyright (c) Proud Sourcing GmbH | 2017
  * @link www.proudcommerce.com
  * @package psElkStackLog
- * @version 1.2.0
+ * @version 1.3.0
  **/
 class pselkstacklog_module extends oxSuperCfg
 {

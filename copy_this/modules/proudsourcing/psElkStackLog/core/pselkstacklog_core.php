@@ -8,19 +8,21 @@
  * @copyright (c) Proud Sourcing GmbH | 2017
  * @link www.proudcommerce.com
  * @package psElkStackLog
- * @version 1.2.0
+ * @version 1.3.0
  **/
 class psElkStackLog_core extends oxSuperCfg
 {
     /*
      * Saves log in formation in queue table
      */
-    public function saveToQueue($sType, $sData)
+    public function saveToQueue($sType, $aData)
     {
+        $aData["_oxDate"] = date("Y-m-d H:i:s");
+        $aData["timestamp"] = microtime(true);
         $oEntry = oxnew("oxbase");
         $oEntry->init("pselkstacklog_queue");
         $oEntry->pselkstacklog_queue__oxtype = new oxField($sType);
-        $oEntry->pselkstacklog_queue__oxdata = new oxField(serialize($sData));
+        $oEntry->pselkstacklog_queue__oxdata = new oxField(serialize($aData));
         $oEntry->save();
     }
 
@@ -54,6 +56,7 @@ class psElkStackLog_core extends oxSuperCfg
     {
         $aLog["message"] = "psElkStackLog";
         $aLog["source"] = rtrim(preg_replace("(^https?://)", "", oxRegistry::getConfig()->getConfigParam('sShopURL')), '/\\');
+        $aLog["host"] = $_SERVER["SERVER_NAME"];
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, oxRegistry::getConfig()->getConfigParam('psElkStackLog_logurl'));

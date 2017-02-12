@@ -8,7 +8,7 @@
  * @copyright (c) Proud Sourcing GmbH | 2017
  * @link www.proudcommerce.com
  * @package psElkStackLog
- * @version 1.2.0
+ * @version 1.3.0
  **/
 $sLangName  = "Deutsch";
 $iLangNr    = 0;
@@ -23,4 +23,6 @@ $aLang = array(
     'SHOP_MODULE_psElkStackLog_hash'	        => 'Cronjob Key (/index.php?cl=pselkstacklog_cron&fnc=readQueue&key=your.key)',
     'SHOP_MODULE_psElkStackLog_log_search'	    => 'Suchergebnisse',
     'SHOP_MODULE_psElkStackLog_log_order'	    => 'Bestellungen',
+    'SHOP_MODULE_psElkStackLog_log_search_stop'	    => 'Suchbegriffe welche nicht geloggt werden sollen (kommagetrennt)',
+    'SHOP_MODULE_psElkStackLog_log_order_stop'	    => 'Benutzer (eMail-Adresse) welche nicht geloggt werden sollen (kommagetrennt)',
 );

@@ -27,6 +27,10 @@ Screenshot
 
 Changelog
 
+    2017-02-12	1.3.0	change log order log hock
+                        add multichannel logging (ebay [itratos], amazon [egate])
+                        add stop words/user for search/order
+                        use log timestamp for log server
 	2017-01-23	1.2.0	add log queue
 	2016-07-12	1.1.0	add search logging
 	2016-04-01  1.0.0   module release

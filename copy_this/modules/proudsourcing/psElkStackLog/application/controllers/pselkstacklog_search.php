@@ -8,7 +8,7 @@
  * @copyright (c) Proud Sourcing GmbH | 2017
  * @link www.proudcommerce.com
  * @package psElkStackLog
- * @version 1.2.0
+ * @version 1.3.0
  **/
 class psElkStackLog_search extends psElkStackLog_search_parent
 {
@@ -48,7 +48,7 @@ class psElkStackLog_search extends psElkStackLog_search_parent
         if(!$this->_sendLogRequest) {
             $sType = "oxsearch";
             $sSearchParam = oxRegistry::getConfig()->getRequestParameter( 'searchparam', true );
-            if(!empty($sSearchParam)) {
+            if(!empty($sSearchParam) && !$this->_stopLogging($sSearchParam)) {
                 // search request
                 $aLog = array(
                     "_oxType" => $sType,
@@ -60,6 +60,21 @@ class psElkStackLog_search extends psElkStackLog_search_parent
                 $this->_sendLogRequest = true;
             }
         }
+    }
+
+    /*
+     * Dont log this request?!
+     */
+    protected function _stopLogging($sName)
+    {
+        $sStopName = str_replace(" ", "", oxRegistry::getConfig()->getShopConfVar('psElkStackLog_log_search_stop'));
+        $aStopName = explode(",", $sStopName);
+        if (is_array($aStopName)) {
+            if (in_array($sName, $aStopName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
