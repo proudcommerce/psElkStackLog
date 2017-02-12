@@ -20,9 +20,9 @@ Tip: Use the [OXID module connector](https://github.com/OXIDprojects/OXID-Module
 
 Screenshot
 
-![psElkStackLog](https://raw.github.com/proudcommerce/psElkStackLog/master/pselkstackLog_graylog.png)
+![psElkStackLog](https://raw.githubusercontent.com/proudcommerce/psElkStackLog/master/pselkstacklog_graylog.png)
 
-(graylog Dashboard)
+	(graylog dashboard)
 
 
 Changelog
